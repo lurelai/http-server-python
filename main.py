@@ -1,10 +1,11 @@
 from flask import Flask
 
-app = Flask( __name__ )
+app = Flask(__name__)
 
-@app.route('/')
+@app.route("/")
 def root():
-    return "<p>Hello World</p>"
+    return 'Ola Mundo'
 
-app.run()
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5050)
 
