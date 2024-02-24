@@ -7,15 +7,15 @@ def root():
 
 @app.post('/admin')
 def admin_login():
-    form = dict(request.form)
+    data = request.get_json()
 
-    if not {'name', 'password'}.issubset( set(form.keys()) ):
-        return 'You are missing some field, pls, try again with more slow'
+    if not {'name', 'password'}.issubset( set(data.keys()) ):
+        return 'You are missing some field, pls, try again, but more slow'
 
-    if form['name'] != 'addmin':
+    if data['name'] != 'addmin':
         return 'Invalid name'
 
-    if form['password'] != 'myppa':
+    if data['password'] != 'myppa':
         return 'Invalid password'
 
     return 'Admin logged'
